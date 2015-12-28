@@ -1,7 +1,6 @@
 NAME=hello
 PROVIDES=${NAME}
 VERSION=1.0
-EPOCH=1
 ITERATION=1
 ARCH=x86_64
 RPMARCH=noarch
@@ -52,7 +51,7 @@ rpm: fpm rpmbuild
 	test -f $(RPM) || \
 	fpm -s dir -t rpm --rpm-os linux -a $(ARCH) -C root --provides $(PROVIDES) \
 		-n $(NAME) \
-		--version $(VERSION) --epoch $(EPOCH) --iteration $(ITERATION) \
+		--version $(VERSION) --iteration $(ITERATION) \
 		-m $(MAINTAINER) --description $(DESCRIPTION) \
 		--rpm-dist $(RPMDIST) \
 		--after-install $(AINSTALL) \
