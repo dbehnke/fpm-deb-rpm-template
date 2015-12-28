@@ -2,11 +2,22 @@ NAME=hello
 PROVIDES=${NAME}
 VERSION=1.0
 ITERATION=1
-ARCH=x86_64
+
+#ARCH should be all,i686,amd64
+ARCH=all
+
+#RPMARCH should be noarch,i686,x86_64
 RPMARCH=noarch
+
+#RPMDIST should be el5, el6, el7, fc23, etc.
 RPMDIST=el7
+
+#DEBSUFFIX may be used in future, right now this does nothing
 DEBSUFFIX="~Debian~jessie"
+
+#MAINTAINER change to your email address if you don't want user@host
 MAINTAINER="<$(shell whoami)@$(shell hostname)>"
+
 DEB=$(NAME)_$(VERSION)-$(ITERATION)_$(ARCH).deb
 RPM=$(NAME)-$(VERSION)-$(ITERATION).$(RPMDIST).$(RPMARCH).rpm
 DESCRIPTION="Outputs a friendly hello"
